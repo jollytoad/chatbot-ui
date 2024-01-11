@@ -8,6 +8,10 @@ The open-source AI chat app for everyone.
 
 View the latest demo [here](https://x.com/mckaywrigley/status/1738273242283151777?s=20).
 
+## Official Hosted Version
+
+Check back soon for an official hosted version of Chatbot UI.
+
 ## Support
 
 If you find Chatbot UI useful, please consider [sponsoring](https://github.com/sponsors/mckaywrigley) me to support my open-source work :)
@@ -127,6 +131,8 @@ You can view your backend GUI at [http://localhost:54323/project/default/editor]
 ## Hosted Quickstart
 
 Follow these steps to get your own Chatbot UI instance running in the cloud.
+
+Video tutorial coming soon.
 
 ### 1. Follow local quickstart
 
