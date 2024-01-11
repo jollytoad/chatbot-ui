@@ -30,10 +30,12 @@ export default function SetupPage() {
 
   // Profile Step
   const [profileContext, setProfileContext] = useState("")
-  const [displayName, setDisplayName] = useState("")
+  const [displayName, setDisplayName] = useState(profile?.display_name || "")
   const [username, setUsername] = useState(profile?.username || "")
   const [usernameAvailable, setUsernameAvailable] = useState(true)
-  const [profileImageSrc, setProfileImageSrc] = useState("")
+  const [profileImageSrc, setProfileImageSrc] = useState(
+    profile?.image_url || ""
+  )
   const [profileImage, setProfileImage] = useState<File | null>(null)
 
   // API Step
