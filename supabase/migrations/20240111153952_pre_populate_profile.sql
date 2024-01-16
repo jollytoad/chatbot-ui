@@ -12,7 +12,7 @@ DECLARE
     image_url TEXT;
 BEGIN
     -- Obtain profile details from the user data
-    username := COALESCE(NEW.email, 'user' || substr(replace(gen_random_uuid()::text, '-', ''), 1, 16));
+    username := split_part(COALESCE(NEW.email, 'user' || substr(replace(gen_random_uuid()::text, '-', ''), 1, 16)), '@', 1);
     display_name := COALESCE(NEW.raw_user_meta_data ->> 'name', '');
     image_url := COALESCE(NEW.raw_user_meta_data ->> 'picture', '');
 

@@ -5,7 +5,8 @@ import {
   PROFILE_CONTEXT_MAX,
   PROFILE_DISPLAY_NAME_MAX,
   PROFILE_USERNAME_MAX,
-  PROFILE_USERNAME_MIN
+  PROFILE_USERNAME_MIN,
+  PROFILE_USERNAME_READONLY
 } from "@/db/limits"
 import {
   IconCircleCheckFilled,
@@ -127,6 +128,7 @@ export const ProfileStep: FC<ProfileStepProps> = ({
             }}
             minLength={PROFILE_USERNAME_MIN}
             maxLength={PROFILE_USERNAME_MAX}
+            readOnly={PROFILE_USERNAME_READONLY}
           />
 
           <div className="absolute inset-y-0 right-0 flex items-center pr-3">

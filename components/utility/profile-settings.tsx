@@ -3,7 +3,8 @@ import {
   PROFILE_CONTEXT_MAX,
   PROFILE_DISPLAY_NAME_MAX,
   PROFILE_USERNAME_MAX,
-  PROFILE_USERNAME_MIN
+  PROFILE_USERNAME_MIN,
+  PROFILE_USERNAME_READONLY
 } from "@/db/limits"
 import { updateProfile } from "@/db/profile"
 import { uploadImage } from "@/db/storage/profile-images"
@@ -347,6 +348,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
                     }}
                     minLength={PROFILE_USERNAME_MIN}
                     maxLength={PROFILE_USERNAME_MAX}
+                    readOnly={PROFILE_USERNAME_READONLY}
                   />
 
                   {username !== profile.username ? (
