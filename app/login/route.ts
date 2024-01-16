@@ -6,10 +6,12 @@ export async function GET(request: Request) {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
 
+  const { origin } = new URL(request.url)
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: "http://localhost:3000/auth/callback"
+      redirectTo: `${origin}/auth/callback`
     }
   })
 
