@@ -14,3 +14,7 @@ This is a fork of the excellent [Chatbot-UI](https://github.com/mckaywrigley/cha
 - Allow profile name to be readonly
 - Skip API keys in setup - relying on pre-configured env var keys instead
 - Obtain `project_url` & `service_role_key` from the `Vault` instead of hardcoding
+
+## Deployment to Supabase & Vercel
+
+_TODO_
