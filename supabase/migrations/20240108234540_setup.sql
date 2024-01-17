@@ -50,8 +50,8 @@ LANGUAGE 'plpgsql'
 SECURITY DEFINER
 AS $$
 DECLARE
-  project_url TEXT := '<TODO_UPDATE>';
-  service_role_key TEXT := '<TODO_UPDATE>'; -- full access needed for http request to storage
+  project_url TEXT := decrypted_secret from vault.decrypted_secrets where name = 'project_url';
+  service_role_key TEXT := decrypted_secret from vault.decrypted_secrets where name = 'service_role_key'; -- full access needed for http request to storage
   url TEXT := project_url || '/storage/v1/object/' || bucket || '/' || object;
 BEGIN
   SELECT

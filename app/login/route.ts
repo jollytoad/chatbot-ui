@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server"
 import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
+import type { Provider } from "@supabase/supabase-js"
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
@@ -8,7 +9,7 @@ export async function GET(request: Request) {
   const supabase = createClient(cookieStore)
 
   const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: "google",
+    provider: process.env.AUTH_PROVIDER! as Provider,
     options: {
       redirectTo: requestUrl.origin + "/auth/callback"
     }
