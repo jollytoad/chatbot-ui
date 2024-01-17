@@ -9,7 +9,7 @@ import { TablesUpdate } from "@/supabase/types"
 import { ChatSettings } from "@/types"
 import { useRouter } from "next/navigation"
 import { useContext, useEffect, useState } from "react"
-import { APIStep } from "../../components/setup/api-step"
+// import { APIStep } from "../../components/setup/api-step"
 import { FinishStep } from "../../components/setup/finish-step"
 import { ProfileStep } from "../../components/setup/profile-step"
 import {
@@ -178,6 +178,7 @@ export default function SetupPage() {
         )
 
       // API Step
+      /*
       case 2:
         return (
           <StepContainer
@@ -218,9 +219,10 @@ export default function SetupPage() {
             />
           </StepContainer>
         )
+      */
 
       // Workspace Step
-      case 3:
+      case 2:
         return (
           <StepContainer
             stepDescription="Select the default settings for your home workspace."
@@ -240,7 +242,7 @@ export default function SetupPage() {
         )
 
       // Finish Step
-      case 4:
+      case 3:
         return (
           <StepContainer
             stepDescription="You are all set up!"
