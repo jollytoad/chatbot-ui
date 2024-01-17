@@ -39,6 +39,7 @@ export default function SetupPage() {
   const [profileImage, setProfileImage] = useState<File | null>(null)
 
   // API Step
+  /*
   const [useAzureOpenai, setUseAzureOpenai] = useState(false)
   const [openaiAPIKey, setOpenaiAPIKey] = useState("")
   const [openaiOrgID, setOpenaiOrgID] = useState("")
@@ -52,6 +53,7 @@ export default function SetupPage() {
   const [mistralAPIKey, setMistralAPIKey] = useState("")
   const [perplexityAPIKey, setPerplexityAPIKey] = useState("")
   const [openrouterAPIKey, setOpenrouterAPIKey] = useState("")
+  */
 
   // Workspace Step
   const [workspaceInstructions, setWorkspaceInstructions] = useState("")
@@ -96,7 +98,8 @@ export default function SetupPage() {
       username,
       profile_context: profileContext,
       image_url: profileImageUrl,
-      image_path: profileImageUrl,
+      image_path: profileImageUrl
+      /*
       openai_api_key: openaiAPIKey,
       openai_organization_id: openaiOrgID,
       anthropic_api_key: anthropicAPIKey,
@@ -110,6 +113,7 @@ export default function SetupPage() {
       azure_openai_35_turbo_id: azureOpenai35TurboID,
       azure_openai_45_turbo_id: azureOpenai45TurboID,
       azure_openai_45_vision_id: azureOpenai45VisionID
+      */
     }
 
     const updatedProfile = await updateProfile(profile.id, updateProfilePayload)
