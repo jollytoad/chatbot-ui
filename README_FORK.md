@@ -81,7 +81,9 @@ set `Site URL` to match your Vercel app URL.
 
 ## Build Docker container
 
-_TODO_?
+```sh
+docker build -t chatbot-ui-org-docker .
+```
 
 ## Deployment to Kubernetes
 
