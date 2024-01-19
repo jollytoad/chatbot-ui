@@ -39,6 +39,16 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta
+          name="NEXT_PUBLIC_SUPABASE_URL"
+          content={process.env.NEXT_PUBLIC_SUPABASE_URL}
+        />
+        <meta
+          name="NEXT_PUBLIC_SUPABASE_ANON_KEY"
+          content={process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}
+        />
+      </head>
       <body className={inter.className}>
         <Providers attribute="class" defaultTheme="dark">
           <Toaster richColors position="top-center" duration={2000} />
