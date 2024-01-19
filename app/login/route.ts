@@ -3,6 +3,8 @@ import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 import type { Provider } from "@supabase/supabase-js"
 
+export const runtime = "edge"
+
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
   const cookieStore = cookies()
