@@ -16,6 +16,6 @@ export async function GET(request: Request) {
   if (next) {
     return NextResponse.redirect(requestUrl.origin + next)
   } else {
-    return NextResponse.redirect(requestUrl.origin + "/chat")
+    return NextResponse.redirect(requestUrl.origin)
   }
 }
