@@ -288,7 +288,7 @@ export const ProfileSettings: FC<ProfileSettingsProps> = ({}) => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         {profile.image_url ? (
-          <Avatar className="mt-2 h-[34px] w-[34px] cursor-pointer hover:opacity-50">
+          <Avatar className="mt-2 size-[34px] cursor-pointer hover:opacity-50">
             <AvatarImage src={profile.image_url} />
           </Avatar>
         ) : (
