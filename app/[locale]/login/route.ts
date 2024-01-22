@@ -10,7 +10,7 @@ export async function GET(request: Request) {
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
 
-  console.log("login", requestUrl.href)
+  console.log("login", request.method, request.url, "\n", request.headers)
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: process.env.AUTH_PROVIDER! as Provider,
