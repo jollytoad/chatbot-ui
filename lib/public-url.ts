@@ -14,6 +14,10 @@ export function publicUrl(request: Request): URL {
     }
     if (forwardedHost !== requestUrl.host) {
       requestUrl.host = forwardedHost
+
+      if (!forwardedHost.includes(":")) {
+        requestUrl.port = ""
+      }
     }
   }
 
