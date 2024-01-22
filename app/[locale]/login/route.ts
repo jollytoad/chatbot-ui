@@ -2,20 +2,19 @@ import { createClient } from "@/lib/supabase/server"
 import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 import type { Provider } from "@supabase/supabase-js"
+import { publicUrl } from "@/lib/public-url"
 
 export const runtime = "edge"
 
 export async function GET(request: Request) {
-  const requestUrl = new URL(request.url)
   const cookieStore = cookies()
   const supabase = createClient(cookieStore)
-
-  console.log("login", request.method, request.url, "\n", request.headers)
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: process.env.AUTH_PROVIDER! as Provider,
     options: {
-      redirectTo: requestUrl.origin + "/auth/callback"
+      redirectTo: new URL("/auth/callback?next=%2Fchat", publicUrl(request))
+        .href
     }
   })
 

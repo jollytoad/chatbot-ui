@@ -15,6 +15,7 @@ This is a fork of the excellent [Chatbot-UI](https://github.com/mckaywrigley/cha
 - Skip API keys in setup - relying on pre-configured env var keys instead
 - Obtain `project_url` & `service_role_key` from the `Vault` instead of hardcoding
 - Add an explicit `/logout` route
+- Check 'x-forwarded-*' headers for original public URL
 
 ## Deployment to Supabase
 
@@ -83,6 +84,12 @@ set `Site URL` to match your Vercel app URL.
 
 ```sh
 docker build -t chatbot-ui-org-docker .
+```
+
+and to run locally:
+
+```sh
+docker run -p 3000:3000 chatbot-ui-org-docker
 ```
 
 ## Deployment to Kubernetes
