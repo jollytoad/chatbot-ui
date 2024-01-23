@@ -19,7 +19,7 @@ export async function GET(request: Request) {
   })
 
   if (error) {
-    console.log(error)
+    console.error(error)
     return NextResponse.error()
   }
 
