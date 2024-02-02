@@ -27,6 +27,14 @@ module.exports = withBundleAnalyzer(
     },
     experimental: {
       serverComponentsExternalPackages: ["sharp", "onnxruntime-node"]
+    },
+    output: "standalone",
+    async redirects() {
+      return [{
+        source: "/login",
+        destination: "/login-sso",
+        permanent: true
+      }]
     }
   })
 )

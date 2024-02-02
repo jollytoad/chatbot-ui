@@ -54,9 +54,9 @@ file_size_limit = "50MiB"
 [auth]
 # The base URL of your website. Used as an allow-list for redirects and for constructing URLs used
 # in emails.
-site_url = "http://localhost:3000"
+site_url = "http://localhost:3333"
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
-additional_redirect_urls = ["https://localhost:3000"]
+additional_redirect_urls = ["http://localhost:3333/auth/callback"]
 # How long tokens are valid for, in seconds. Defaults to 3600 (1 hour), maximum 604,800 (1 week).
 jwt_expiry = 604800
 # If disabled, the refresh token will never expire.
@@ -98,13 +98,13 @@ auth_token = "env(SUPABASE_AUTH_SMS_TWILIO_AUTH_TOKEN)"
 # Use an external OAuth provider. The full list of providers are: `apple`, `azure`, `bitbucket`,
 # `discord`, `facebook`, `github`, `gitlab`, `google`, `keycloak`, `linkedin`, `notion`, `twitch`,
 # `twitter`, `slack`, `spotify`, `workos`, `zoom`.
-[auth.external.apple]
-enabled = false
-client_id = ""
+[auth.external.google]
+enabled = true
+client_id = "env(AUTH_GOOGLE_ID)"
 # DO NOT commit your OAuth provider secret to git. Use environment variable substitution instead:
-secret = "env(SUPABASE_AUTH_EXTERNAL_APPLE_SECRET)"
+secret = "env(AUTH_GOOGLE_SECRET)"
 # Overrides the default auth redirectUrl.
-redirect_uri = ""
+redirect_uri = "http://127.0.0.1:54321/auth/v1/callback"
 # Overrides the default auth provider URL. Used to support self-hosted gitlab, single-tenant Azure,
 # or any other third-party OIDC providers.
 url = ""
