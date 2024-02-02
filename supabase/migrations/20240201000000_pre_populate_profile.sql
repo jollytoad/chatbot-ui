@@ -1,11 +1,11 @@
-set check_function_bodies = off;
+-- PROFILES
 
-CREATE OR REPLACE FUNCTION public.create_profile_and_workspace()
- RETURNS trigger
- LANGUAGE plpgsql
- SECURITY DEFINER
- SET search_path TO 'public'
-AS $function$
+CREATE OR REPLACE FUNCTION create_profile_and_workspace() 
+RETURNS TRIGGER
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
 DECLARE
     username TEXT;
     display_name TEXT;
@@ -17,7 +17,9 @@ BEGIN
     image_url := COALESCE(NEW.raw_user_meta_data ->> 'picture', '');
 
     -- Create a profile for the new user
-    INSERT INTO public.profiles(user_id, anthropic_api_key, azure_openai_35_turbo_id, azure_openai_45_turbo_id, azure_openai_45_vision_id, azure_openai_api_key, azure_openai_endpoint, google_gemini_api_key, has_onboarded, image_url, image_path, mistral_api_key, display_name, bio, openai_api_key, openai_organization_id, perplexity_api_key, profile_context, use_azure_openai, username)
+    INSERT INTO public.profiles(user_id, anthropic_api_key, azure_openai_35_turbo_id, azure_openai_45_turbo_id,
+    azure_openai_45_vision_id, azure_openai_api_key, azure_openai_endpoint, google_gemini_api_key,
+    has_onboarded, image_url, image_path, mistral_api_key, display_name, bio, openai_api_key, openai_organization_id, perplexity_api_key, profile_context, use_azure_openai, username)
     VALUES(
         NEW.id,
         '',
@@ -27,7 +29,7 @@ BEGIN
         '',
         '',
         '',
-        FALSE,
+        TRUE,
         image_url,
         '',
         '',
@@ -41,14 +43,13 @@ BEGIN
         username
     );
 
-    -- Create the home workspace for the new user
     INSERT INTO public.workspaces(user_id, is_home, name, default_context_length, default_model, default_prompt, default_temperature, description, embeddings_provider, include_profile_context, include_workspace_instructions, instructions)
     VALUES(
         NEW.id,
         TRUE,
         'Home',
         4096,
-        'gpt-4-1106-preview',
+        'gpt-4-turbo-preview', -- Updated default model
         'You are a friendly, helpful AI assistant.',
         0.5,
         'My home workspace.',
@@ -60,7 +61,4 @@ BEGIN
 
     RETURN NEW;
 END;
-$function$
-;
-
-
+$$;
