@@ -27,6 +27,7 @@ module.exports = withBundleAnalyzer(
     },
     experimental: {
       serverComponentsExternalPackages: ["sharp", "onnxruntime-node"]
-    }
+    },
+    output: "standalone"
   })
 )
