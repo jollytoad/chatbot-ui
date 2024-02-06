@@ -3,6 +3,8 @@ import { createResponse } from "@/lib/server/server-utils"
 import { EnvKey } from "@/types/key-type"
 import { VALID_ENV_KEYS } from "@/types/valid-keys"
 
+export const runtime = "edge"
+
 export async function GET() {
   const envKeyMap: Record<string, VALID_ENV_KEYS> = {
     azure: VALID_ENV_KEYS.AZURE_OPENAI_API_KEY,
