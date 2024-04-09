@@ -24,15 +24,16 @@ export type GoogleLLMID =
 export type AnthropicLLMID =
   | "claude-2.1" // Claude 2
   | "claude-instant-1.2" // Claude Instant
+  | "claude-3-haiku-20240307" // Claude 3 Haiku
   | "claude-3-sonnet-20240229" // Claude 3 Sonnet
   | "claude-3-opus-20240229" // Claude 3 Opus
 
 // Mistral Models
 export type MistralLLMID =
   | "mistral-tiny" // Mistral Tiny
-  | "mistral-small" // Mistral Small
-  | "mistral-medium" // Mistral Medium
-  | "mistral-large-2402" // Mistral Large
+  | "mistral-small-latest" // Mistral Small
+  | "mistral-medium-latest" // Mistral Medium
+  | "mistral-large-latest" // Mistral Large
 
 export type GroqLLMID =
   | "llama2-70b-4096" // LLaMA2-70b
@@ -61,6 +62,12 @@ export interface LLM {
   hostedId: string
   platformLink: string
   imageInput: boolean
+  pricing?: {
+    currency: string
+    unit: string
+    inputCost: number
+    outputCost?: number
+  }
 }
 
 export interface OpenRouterLLM extends LLM {
