@@ -91,7 +91,3 @@ and to run locally:
 ```sh
 docker run -p 3000:3000 chatbot-ui-org-docker
 ```
-
-## Deployment to Kubernetes
-
-_TODO_?
