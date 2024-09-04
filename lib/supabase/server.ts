@@ -6,6 +6,9 @@ export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
+      auth: {
+        debug: process.env.DEBUG_AUTH === "true"
+      },
       cookies: {
         get(name: string) {
           return cookieStore.get(name)?.value
