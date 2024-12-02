@@ -17,7 +17,10 @@ export async function POST(request: Request) {
     checkApiKey(profile.google_gemini_api_key, "Google")
 
     const genAI = new GoogleGenerativeAI(profile.google_gemini_api_key || "")
-    const googleModel = genAI.getGenerativeModel({ model: chatSettings.model })
+    const googleModel = genAI.getGenerativeModel(
+      { model: chatSettings.model },
+      { baseUrl: process.env.GOOGLE_GEMINI_BASE_URL }
+    )
 
     const lastMessage = messages.pop()
 
